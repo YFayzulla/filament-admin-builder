@@ -17,6 +17,12 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+//
+//    public function canAccessPanel(Panel $panel): bool
+//    {
+//        return str_ends_with($this->email, 'admin@gmail.com') && $this->hasVerifiedEmail();
+//    }
+
     protected $fillable = [
         'name',
         'email',
