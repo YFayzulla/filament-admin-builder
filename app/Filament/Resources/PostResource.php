@@ -27,16 +27,25 @@ class  PostResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+
+                Forms\Components\Section::make('User name')
+                    ->description('Book name')
+                    ->schema([
+                        Forms\Components\TextInput::make('name')
+                            ->required()
+                            ->maxLength(255),
+                    ])->columns(1),
+                Forms\Components\Select::make('category_id')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('category_id')
-                    ->required()
-                    ->maxLength(255),
+                    ->relationship(name: 'category', titleAttribute: 'name')
+                    ->native('true')
+                    ->searchable()
+                    ->preload(),
                 Forms\Components\TextInput::make('description')
                     ->required()
-                    ->maxLength(255),
-            ]);
+                    ->maxLength(255)
+
+            ])->columns(2);
     }
 
     public static function table(Table $table): Table
