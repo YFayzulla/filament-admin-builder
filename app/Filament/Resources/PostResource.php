@@ -55,6 +55,7 @@ class  PostResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('category_id')
+                    ->exists('category')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('description')
                     ->searchable(),
