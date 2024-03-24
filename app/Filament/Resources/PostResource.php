@@ -17,7 +17,11 @@ class  PostResource extends Resource
 {
     protected static ?string $model = Post::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-book-open';
+    protected static ?string $navigationLabel = 'Books';
+    protected static ?string $modelLabel = 'Our Books';
+    protected static ?string $navigationGroup = 'Objects';
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
@@ -70,7 +74,7 @@ class  PostResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+//            RelationManagers\PostsRelationManager::class,
         ];
     }
 
