@@ -1,0 +1,9 @@
+<h1>Create Book</h1>
+<form method="POST">
+    {% csrf_token %}
+    Title: <input type="text" name="title"><br>
+    Author: <input type="text" name="author"><br>
+    Published Date: <input type="date" name="published_date"><br>
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'book_list' %}">Back</a>
